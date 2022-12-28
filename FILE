@@ -1,4 +1,4 @@
-local DarkDevs = Instance.new("ScreenGui")
+local DarkDevs = Instance.new("ScreenGui") --hate girls fr
 local LoginFrame = Instance.new("Frame")
 local keyhere = Instance.new("TextBox")
 local TextLabel = Instance.new("TextLabel")
