@@ -1,62 +1,74 @@
-getgenv().SecureMode = true
+local DarkDevs = Instance.new("ScreenGui")
+local LoginFrame = Instance.new("Frame")
+local keyhere = Instance.new("TextBox")
+local TextLabel = Instance.new("TextLabel")
+local check = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+DarkDevs.Name = "DarkDevs"
+DarkDevs.Parent = game.CoreGui
+LoginFrame.Name = "LoginFrame"
+LoginFrame.Parent = DarkDevs
+LoginFrame.BackgroundColor3 = Color3.new(0.301961, 0.301961, 0.301961)
+LoginFrame.BorderSizePixel = 0
+LoginFrame.Position = UDim2.new(0.349650353, 0, 0.327715367, 0)
+LoginFrame.Size = UDim2.new(0, 303, 0, 131)
+keyhere.Name = "keyhere"
+keyhere.Parent = LoginFrame
+keyhere.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+keyhere.BorderSizePixel = 0
+keyhere.Position = UDim2.new(0.0528052822, 0, 0.312977135, 0)
+keyhere.Size = UDim2.new(0, 268, 0, 27)
+keyhere.Font = Enum.Font.Fantasy
+keyhere.Text = "Enter  Your Key Here"
+keyhere.TextColor3 = Color3.new(1, 1, 1)
+keyhere.TextSize = 14
+TextLabel.Parent = LoginFrame
+TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel.BackgroundTransparency = 1
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0528052822, 0, 0.770992339, 0)
+TextLabel.Size = UDim2.new(0, 268, 0, 30)
+TextLabel.Font = Enum.Font.Fantasy
+TextLabel.Text = "Created by ! Akira#8665"
+TextLabel.TextColor3 = Color3.new(1, 1, 1)
+TextLabel.TextSize = 12
+check.Name = "check"
+check.Parent = LoginFrame
+check.BackgroundColor3 = Color3.new(0.258824, 0.258824, 0.258824)
+check.BorderSizePixel = 0
+check.Position = UDim2.new(0.297029704, 0, 0.572519064, 0)
+check.Size = UDim2.new(0, 120, 0, 19)
+check.Font = Enum.Font.SciFi
+check.Text = "Check"
+check.TextColor3 = Color3.new(1, 1, 1)
+check.TextSize = 14
 
-print("Whitelisted")
+check.MouseButton1Down:connect(function()
+local key = keyhere.Text
+local userid = game:GetService('Players').LocalPlayer.UserId
+local url = "https://ohiohub.000webhostapp.com/index.php?key="..key.."&user="..userid
 
- Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
-local Window = Rayfield:CreateWindow({
-	Name = "Ohio Hub",
-	LoadingTitle = "Ohio Hub",
-	LoadingSubtitle = "By Rise And Akira",
-	ConfigurationSaving = {
-		Enabled = true,
-		FolderName = "FameHub", -- Create a custom folder for your hub/game
-		FileName = "FameHub"
-	},
-        Discord = {
-        	Enabled = true,
-        	Invite = "D6FmJdRX", -- The Discord invite code, do not include discord.gg/
-        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-        },
-	KeySystem = true, -- Set this to true to use our key system
-	KeySettings = {
-		Title = "FameHub",
-		Subtitle = "Key System",
-		Note = "Join the discord (https://discord.gg/D6FmJdRX)",
-		FileName = "FameHub",
-		SaveKey = true,
-		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-		Key = "Loser"
-	}
-})
-
-Rayfield:Notify({
-    Title = "Whitelisted",
-    Content = "Script Loaded, Version: PAID",
-    Duration = 10,
-    Image = 4483362458,
-    Actions = { -- Notification Buttons
-        Ignore = {
-            Name = "Close",
-            Callback = function()
-                print("Notification Prompt Closed")
-            end
-		},
-	},
-})
-
-print("Script Loaded, Version: PAID")
-
-local Tab = Window:CreateTab("Main", 4483362458)
-
-local Section = Tab:CreateSection("Data Main")
-
-local Button1 = Tab:CreateButton({
-	Name = "Data Dupe",
-	Callback = function()
-		for i,v in pairs(game:GetService("ReplicatedStorage").API:GetChildren())do
-    if v:IsA("RemoteEvent")then
-        v:FireServer(workspace)
-    end
+if game:HttpGet(url) == "~ True ~" then
+check.Text = "Whitelisted"
+wait(1)
+loadstring(game:HttpGet("https://ohiohub.000webhostapp.com/script.lua"))()
+wait(1)
+LoginFrame.Visible = false
+else
+--// Not Whitelisted Script Here
+check.Text = " ~ Not Whitelisted ~"
+wait(1)
+LoginFrame.Visible = false
 end
-	end,
-})
+end)
+
+TextLabel_2.Parent = LoginFrame
+TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel_2.BackgroundTransparency = 1
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0528052822, 0, -5.21540642e-08, 0)
+TextLabel_2.Size = UDim2.new(0, 268, 0, 30)
+TextLabel_2.Font = Enum.Font.Fantasy
+TextLabel_2.Text = "Ohio Hub Key System"
+TextLabel_2.TextColor3 = Color3.new(1, 0, 0.0156863)
+TextLabel_2.TextSize = 18
